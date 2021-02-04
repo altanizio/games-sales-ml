@@ -62,10 +62,31 @@ Corr: 0.4 (p-value < 2.2e-16); tendência: Local Polynomial Regression Fitting (
 
 Observa-se que quando ocorre um aumento da nota média da crítica as vendas tendem a aumentar em média.
 
+User_Score
+-------------
+Nota média dos usuários (metracritic)
 
+Relação da nota média dos usuários com o ln(Global_Sales)
+![](plots/scarter_user_sales.png?raw=true)  
+Corr: 0.01 (p-value = 0.7349); tendência: Local Polynomial Regression Fitting (loess)
+
+Não há evidências que existe uma relação entre a nota média dos usuários e o número de vendas.
+
+Genre
+-------------
+Gênero do jogo
+
+![](plots/bar_genero_sales.png?raw=true)  
+Corr: 0.01 (p-value = 0.7349); tendência: Local Polynomial Regression Fitting (loess)
+
+Esse gráfico não é o total de vendas.
+
+O gráfico demonstra que jogos de tiro (shooter) são mais eficientes na venda em média, ou seja, esse gênero tem uma maior probabilidade de vender melhor.
 
 Criação dos modelos
 ====================
+
+
 
 
 Escolha do modelo final
