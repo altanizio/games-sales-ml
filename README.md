@@ -60,6 +60,10 @@ global_sales aplicado um logarítimo natural
 </figure>
 </p>
 
+global_sales bruto            |  global_sales aplicado um logarítimo natural
+:-------------------------:|:-------------------------:
+![](plots/global_sales.jpg?raw=true)  |  ![](plots/global_sales_ln.jpg?raw=true)
+
 
 
 Criação dos modelos
