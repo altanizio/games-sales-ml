@@ -24,7 +24,7 @@ Sumário
 
 Sobre
 ======
-O presente trabalho tem o objetivo de desenvolver modelos de machine lerning (ML) com os dados de vendas de jogos eletrônicos de 2013 a 2017. 
+O presente trabalho tem o objetivo de desenvolver modelos de machine lerning (ML) com os dados de vendas de jogos eletrônicos de 2013 a 2017 (oitava geração de consoles). 
 Este trabalho é fundamentalmente para a prática de ML do autor, como forma de portfólio.
 
 - Este README.md é um resumo, para ver todos os passos acessar o Relatório criado no Rmarkdown: 
@@ -43,12 +43,23 @@ Variáveis criadas:
 
 Global_Sales
 -------------
+Vendas Globais (Shipped)
+
 global_sales bruto            |  global_sales aplicado um logarítimo natural
 :-------------------------:|:-------------------------:
 ![](plots/global_sales.jpg?raw=true)  |  ![](plots/global_sales_ln.jpg?raw=true)
 Shapiro-test: p-value < 2.2e-16  |  Shapiro-test: p-value = 6.071e-06
 
-Ao aplicar a função log() no Global_Sales observa-se uma maior aproximação para uma distribuição normal, apesar de não ser. Observa-se diversos outliers pelo boxplot representando jogos que vendem fora do comum, em especial o outlier do segundo gráfico, o qual é o GTA V com 57.75 milhoes de cópias enviadas (shipped).
+Ao aplicar a função log() no Global_Sales observa-se uma maior aproximação para uma distribuição normal, apesar de não ter evidências (p-value < 0,05). Observa-se diversos outliers pelo boxplot representando jogos que vendem fora do comum, em especial o outlier do segundo gráfico, o qual é o GTA V com 57.75 milhoes de cópias enviadas (shipped).
+
+Critic_Score
+-------------
+Nota média da crítica (metracritic)
+
+                            |  
+:-------------------------:|
+![](plots/scarter_critic_sales.png?raw=true)  |  
+Corr: 0.4; p-value < 2.2e-16  |  
 
 Criação dos modelos
 ====================
