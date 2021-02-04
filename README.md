@@ -8,7 +8,7 @@ Sumário
 =================
 <!--ts-->
    * [Sobre](#Sobre)
-   * [Análise exploratória](#tabela-de-conteudo)
+   * [Análise exploratória](#analise-exploratoria)
    * [Criação dos modelos](#instalacao)
    * [Escolha do modelo final](#como-usar)
       * [Pre Requisitos](#pre-requisitos)
@@ -20,7 +20,22 @@ Sumário
    * [Fontes e referências](#tecnologias)
 <!--te-->
 
-# Sobre2
+Sobre
+======
 
 
-# Sobre
+
+Análise exploratória
+====================
+
+
+Criação dos modelos
+===================
+
+
+Escolha do modelo final
+=======================
+
+
+Pre Requisitos
+--------------
