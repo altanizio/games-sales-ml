@@ -8,9 +8,9 @@ Sumário
 =================
 <!--ts-->
    * [Sobre](#Sobre)
-   * [Análise exploratória](#analise-exploratoria)
-   * [Criação dos modelos](#instalacao)
-   * [Escolha do modelo final](#como-usar)
+   * [Análise exploratória](#análise-exploratória)
+   * [Criação dos modelos](#criação-dos-modelos)
+   * [Escolha do modelo final](#escolha-do-modelo-final)
       * [Pre Requisitos](#pre-requisitos)
       * [Local files](#local-files)
       * [Remote files](#remote-files)
