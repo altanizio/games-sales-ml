@@ -43,7 +43,10 @@ Variáveis criadas:
 
 Global_Sales
 -------------
-![](plots/global_sales.jpg?raw=true) ![](plots/global_sales_ln.jpg?raw=true) 
+global_sales bruto
+![](plots/global_sales.jpg?raw=true){ width=50% }
+global_sales aplicado um logarítimo natural
+![](plots/global_sales_ln.jpg?raw=true){ width=50% } 
 
 Criação dos modelos
 ====================
