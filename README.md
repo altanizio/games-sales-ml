@@ -10,6 +10,9 @@ Sumário
    * [Sobre](#sobre)
    * [Análise exploratória](#análise-exploratória)
       * [Global_Sales](#Global_Sales)
+      * [Critic_Score](#Critic_Score)
+      * [User_Score](#User_Score)
+      * [Genre](#Genre)
    * [Criação dos modelos](#criação-dos-modelos)
    * [Dados para a aprendizagem](#criação-dos-modelos)
    * [Escolha do modelo final](#escolha-do-modelo-final)
@@ -76,12 +79,17 @@ Genre
 -------------
 Gênero do jogo
 
-![](plots/bar_genero_sales.png?raw=true)  
-Corr: 0.01 (p-value = 0.7349); tendência: Local Polynomial Regression Fitting (loess)
 
-Esse gráfico não é o total de vendas.
+1            |  2
+:-------------------------:|:-------------------------:
+![](plots/bar_genero_sales.png?raw=true)  |  ![](plots/bar_genero_critic.png?raw=true)
 
-O gráfico demonstra que jogos de tiro (shooter) são mais eficientes na venda em média, ou seja, esse gênero tem uma maior probabilidade de vender melhor.
+
+O gráfico 1 não é o total de vendas. É o total de vendas dividido pelo total de jogos daquele gênero.
+
+O gráfico 1 demonstra que jogos de tiro (shooter) são mais eficientes na venda em média, ou seja, esse gênero tem uma maior probabilidade de vender melhor.
+
+O gráfico 2 demonstra não existir uma diferença significativa entre a nota média dos gêneros.
 
 Criação dos modelos
 ====================
