@@ -48,15 +48,22 @@ global_sales bruto
 global_sales aplicado um logarítimo natural
 <img src="plots/global_sales_ln.jpg?raw=true" alt="drawing" width="50%"/>
 
+<div class="grid-container">
+<div class="grid-item">
 <figure>
 	<img src="plots/global_sales.jpg?raw=true" alt="drawing" width="50%"/>
 	<figcaption>Figura 1 - Global Sales bruto</figcaption>
 </figure>
+</div>
 
+<div class="grid-item">
 <figure>
 	<img src="plots/global_sales_ln.jpg?raw=true" alt="drawing" width="50%"/>
 	<figcaption>Figura 2 - global_sales aplicado um logarítimo natural</figcaption>
 </figure>
+</div>
+
+</div>
 
 Criação dos modelos
 ====================
