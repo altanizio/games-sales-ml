@@ -13,6 +13,8 @@ Sumário
       * [Critic_Score](#Critic_Score)
       * [User_Score](#User_Score)
       * [Genre](#Genre)
+      * [Publisher](#Publisher)
+      * [Publisher](#Publisher)
    * [Criação dos modelos](#criação-dos-modelos)
    * [Dados para a aprendizagem](#criação-dos-modelos)
    * [Escolha do modelo final](#escolha-do-modelo-final)
@@ -79,17 +81,43 @@ Genre
 -------------
 Gênero do jogo
 
+Gráfico - 1
+![](plots/bar_genero_sales.png?raw=true)  
 
-1            |  2
-:-------------------------:|:-------------------------:
-![](plots/bar_genero_sales.png?raw=true)  |  ![](plots/bar_genero_critic.png?raw=true)
-
+Gráfico - 2
+![](plots/bar_genero_critic.png?raw=true)
 
 O gráfico 1 não é o total de vendas. É o total de vendas dividido pelo total de jogos daquele gênero.
 
 O gráfico 1 demonstra que jogos de tiro (shooter) são mais eficientes na venda em média, ou seja, esse gênero tem uma maior probabilidade de vender melhor.
 
 O gráfico 2 demonstra não existir uma diferença significativa entre a nota média dos gêneros.
+
+Publisher
+-------------
+Publicadora do jogo
+
+![](plots/bar_Publisher_sales.png?raw=true)  
+
+O gráfico demonstra que a publicadora Take-Two Interactive é a mais eficiente, vendendo mais por jogo lançado.
+
+Continuacao
+-------------
+Se o jogo é uma continuação de outro jogo
+
+![](plots/bar_Continuacao_sales.png?raw=true)  
+
+O gráfico demonstra que jogos que são continuação são mais eficientes nas vendas.
+
+n_platforms
+-------------
+Número de plataformas que o jogo foi lançado
+
+![](plots/bar_n_platforms_sales.png?raw=true)  
+
+Logicamente observa-se que quanto mais plataformas maior vai ser o número de vendas.
+
+
 
 Criação dos modelos
 ====================
