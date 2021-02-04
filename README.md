@@ -43,28 +43,12 @@ Variáveis criadas:
 
 Global_Sales
 -------------
-global_sales bruto
-<img src="plots/global_sales.jpg?raw=true" alt="drawing" width="50%"/>
-global_sales aplicado um logarítimo natural
-<img src="plots/global_sales_ln.jpg?raw=true" alt="drawing" width="50%"/>
-
-<p float="left">
-<figure>
-	<img src="plots/global_sales.jpg?raw=true" alt="drawing" width="20%"/>
-	<figcaption>Figura 1 - Global Sales bruto</figcaption>
-</figure>
-
-<figure>
-	<img src="plots/global_sales_ln.jpg?raw=true" alt="drawing" width="20%"/>
-	<figcaption>Figura 2 - global_sales aplicado um logarítimo natural</figcaption>
-</figure>
-</p>
-
 global_sales bruto            |  global_sales aplicado um logarítimo natural
 :-------------------------:|:-------------------------:
 ![](plots/global_sales.jpg?raw=true)  |  ![](plots/global_sales_ln.jpg?raw=true)
+Shapiro-test: p-value < 2.2e-16  |  Shapiro-test: p-value = 6.071e-06
 
-
+Ao aplicar a função log() no Global_Sales observa-se uma maior aproximação para uma distribuição normal, apesar de não ser. Observa-se diversos outliers pelo boxplot representando jogos que vendem fora do comum, em especial o outlier do segundo gráfico, o qual é o GTA V com 57.75 milhoes de cópias enviadas (shipped).
 
 Criação dos modelos
 ====================
