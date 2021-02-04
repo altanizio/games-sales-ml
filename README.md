@@ -56,10 +56,13 @@ Critic_Score
 -------------
 Nota média da crítica (metracritic)
 
-                            |  
-:-------------------------:|
-![](plots/scarter_critic_sales.png?raw=true)  |  
-Corr: 0.4; p-value < 2.2e-16  |  
+Relação da nota da crítica com o ln(Global_Sales)
+![](plots/scarter_critic_sales.png?raw=true)  
+Corr: 0.4 (p-value < 2.2e-16); tendência: Local Polynomial Regression Fitting (loess)
+
+Observa-se que quando ocorre um aumento da nota média da crítica as vendas tendem a aumentar em média.
+
+
 
 Criação dos modelos
 ====================
