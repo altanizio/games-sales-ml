@@ -124,7 +124,7 @@ Os modelos escolhidos para o treinamento foram quatro descritos a seguir. Os pro
 
 A métrica alvo escolhida foi o RMSE (root mean squared error), representando a raiz quadrática média:
 
-![equation](https://latex.codecogs.com/png.latex?RMSEA%20%3D%20%5Csqrt%7B%5Cfrac%7B1%7D%7Bn%7D%5Csum_%7Bn%7D%5E%7Bj%20%3D%201%7D%28y_%7Bj%7D%20-%20%5Chat%7By%7D_%7Bj%7D%29%5E2%7D)
+![equation](https://latex.codecogs.com/png.latex?%5Cdpi%7B120%7D%20%5Cbg_white%20RMSEA%20%3D%20%5Csqrt%7B%5Cfrac%7B1%7D%7Bn%7D%5Csum_%7Bn%7D%5E%7Bj%20%3D%201%7D%28y_%7Bj%7D%20-%20%5Chat%7By%7D_%7Bj%7D%29%5E2%7D)
 
 <!--  RMSEA = \sqrt{\frac{1}{n}\sum_{n}^{j = 1}(y_{j} - \hat{y}_{j})^2} -->
 
