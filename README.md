@@ -13,7 +13,8 @@ Sumário
       * [User_Score](#User_Score)
       * [Genre](#Genre)
       * [Publisher](#Publisher)
-      * [Publisher](#Publisher)
+      * [Continuacao](#Continuacao)
+      * [n_platforms](#n_platforms)
    * [Criação dos modelos](#criação-dos-modelos)
    * [Dados para a aprendizagem](#criação-dos-modelos)
    * [Escolha do modelo final](#escolha-do-modelo-final)
@@ -116,12 +117,25 @@ Número de plataformas que o jogo foi lançado
 
 Logicamente observa-se que quanto mais plataformas maior vai ser o número de vendas.
 
-
-
 Criação dos modelos
 ====================
 
+Os modelos escolhidos para o treinamento foram quatro descritos a seguir. Os processos foram realizados utilizando cros-validation, testando com k = 5 e k = 10. Os resultados com k = 10 foram mais promissores utilizando de 10 repetições, ou seja, 100 testes por modelo para a otimização dos parâmetros.
 
+A métrica alvo escolhida foi o RMSE (root mean squared error), representando a raiz quadrática média:
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=RMSEA&space;=&space;\sqrt{\frac{1}{n}\sum_{n}^{j&space;=&space;1}(y_{j}&space;-&space;\hat{y}_{j})^2}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?RMSEA&space;=&space;\sqrt{\frac{1}{n}\sum_{n}^{j&space;=&space;1}(y_{j}&space;-&space;\hat{y}_{j})^2}" title="RMSEA = \sqrt{\frac{1}{n}\sum_{n}^{j = 1}(y_{j} - \hat{y}_{j})^2}" /></a>
+
+Random Florest
+-------------
+
+O parâmetro ajudato desse modelo é:
+
+- mtry: Número de variáveis escolhidas randomicamente para compor a amostra em cada divisão.
+
+![](plots/model_rf.png?raw=true) 
+
+mtry = 5 foi o melhor resultado
 
 
 Escolha do modelo final
