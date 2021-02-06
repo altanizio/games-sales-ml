@@ -129,15 +129,28 @@ A métrica alvo escolhida foi o RMSE (root mean squared error), representando a 
 <!--  RMSEA = \sqrt{\frac{1}{n}\sum_{n}^{j = 1}(y_{j} - \hat{y}_{j})^2} -->
 
 Random Florest
--------------
+---------------
 
-O parâmetro ajudato desse modelo é:
+O parâmetro otimizado desse modelo foi:
 
 - mtry: Número de variáveis escolhidas randomicamente para compor a amostra em cada divisão.
 
 ![](plots/model_rf.png?raw=true) 
 
-mtry = 5 foi o melhor resultado
+mtry = 5 foi o melhor resultado.
+
+SVNLinear
+---------------
+L2-regularized L1-loss or L2-loss support vector regression (dual)
+
+Os parâmetros otimizados desse modelo foram:
+
+- Loss: L1 Loss function stands for Least Absolute Deviations; L2 Loss function stands for Least Square Errors.
+- cost
+
+![](plots/model_rf.png?raw=true) 
+
+mtry = 5 foi o melhor resultado.
 
 
 Escolha do modelo final
