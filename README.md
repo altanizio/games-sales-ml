@@ -148,14 +148,30 @@ Os parâmetros otimizados desse modelo foram:
 - Loss: L1 Loss function stands for Least Absolute Deviations; L2 Loss function stands for Least Square Errors.
 - cost
 
-![](plots/model_rf.png?raw=true) 
+O modelo foi testado com as variávies preditoras padronizadas e não padronizadas.
 
-mtry = 5 foi o melhor resultado.
+Não padronizado            |  Padronizado
+:-------------------------:|:-------------------------:
+![](plots/model_svmLinear.png?raw=true) |  ![](plots/model_svmLinear_scale.png?raw=true) 
 
+
+Observa-se que o SVN com valores padronizados apresentou melhores resultados, demonstrando a importância de pradronizar as variáveis para esse tipo de modelo.
+
+Boosting 
+---------------
+eXtreme Gradient Boosting 
+
+Existem diversos parâmetros de otimização: eta,max_depth, colsample_bytree, subsample, nrounds, gamma e min_child_weight.
+Foram testado diversos cenários, alguns estão visiveis no gráfico abaixo.
+
+![](plots/model_boost.png?raw=true)
 
 Escolha do modelo final
 ========================
 
+Após a calibração dos modelos foi feito a comparação com k = 5 e k = 10 com 30 repetições.
+
+Os modelos foram comparados através de dois testes: wilcox e nemenyi
 
 Pre Requisitos
 ---------------
