@@ -182,7 +182,7 @@ Os modelos foram comparados através de dois testes: wilcox e nemenyi
 k            |  wilcox |  nemenyi
 :-------------------------:|:-------------------------:|:-------------------------:
 5 |  ![](plots/modelos_comparacao_wilcox.png?raw=true) |  ![](plots/modelos_comparacao_friedman.png?raw=true) 
-10 |  ![](plots/modelos_comparacao_wilcox_10.png?raw=true) |  ![](plots/modelos_comparacao_wilcox_10.png?raw=true) 
+10 |  ![](plots/modelos_comparacao_wilcox_10.png?raw=true) |  ![](plots/modelos_comparacao_friedman_10.png?raw=true) 
 
 Em todos os cenários o modelo svmLinear apresentou melhores resultados sendo comparado com o Lasso (k = 5) e radial (k = 10).
 
