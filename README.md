@@ -120,13 +120,19 @@ Logicamente observa-se que quanto mais plataformas maior vai ser o número de ve
 Criação dos modelos
 ====================
 
-Os modelos escolhidos para o treinamento foram quatro descritos a seguir. Os processos foram realizados utilizando cros-validation, testando com k = 5 e k = 10. Os resultados com k = 10 foram mais promissores utilizando de 10 repetições, ou seja, 100 testes por modelo para a otimização dos parâmetros.
+Os modelos escolhidos para o treinamento foram quatro descritos a seguir. Os processos foram realizados utilizando cros-validation, testando com k = 5 e k = 10. Os resultados com k = 10 foram mais promissores utilizando de 10 repetições, ou seja, 100 testes por modelo para a otimização dos hiperparâmetros.
 
 A métrica alvo escolhida foi o RMSE (root mean squared error), representando a raiz quadrática média:
 
 ![equation](https://latex.codecogs.com/png.latex?%5Cdpi%7B120%7D%20%5Cbg_white%20RMSEA%20%3D%20%5Csqrt%7B%5Cfrac%7B1%7D%7Bn%7D%5Csum_%7Bn%7D%5E%7Bj%20%3D%201%7D%28y_%7Bj%7D%20-%20%5Chat%7By%7D_%7Bj%7D%29%5E2%7D)
 
 <!--  RMSEA = \sqrt{\frac{1}{n}\sum_{n}^{j = 1}(y_{j} - \hat{y}_{j})^2} -->
+
+Os modelos escolhidos para a regressão foram: Random Forest, Support Vector Machine (linear, polinomial e radial), Bayesian Regularized Neural Networks, eXtreme Gradient Boosting, lasso e regressão linear múltipla.
+
+Alguns dos modelos estão descritos abaixo, para a verificação de todos por favor checar o arquivo .r.
+
+Observou-se que os modelos utilizando o ln da variável depedente apresentaram melhores resultados, por isso optou-se a continuar com essa abordagem.
 
 Random Florest
 ---------------
@@ -172,6 +178,15 @@ Escolha do modelo final
 Após a calibração dos modelos foi feito a comparação com k = 5 e k = 10 com 30 repetições.
 
 Os modelos foram comparados através de dois testes: wilcox e nemenyi
+
+k            |  wilcox |  nemenyi
+:-------------------------:|:-------------------------:|:-------------------------:
+5 |  ![](plots/modelos_comparacao_wilcox.png?raw=true) |  ![](plots/modelos_comparacao_friedman.png?raw=true) 
+10 |  ![](plots/modelos_comparacao_wilcox_10.png?raw=true) |  ![](plots/modelos_comparacao_wilcox_10.png?raw=true) 
+
+Em todos os cenários o modelo svmLinear apresentou melhores resultados sendo comparado com o Lasso (k = 5) e radial (k = 10).
+
+O modelo final portanto foi o svmLinear(Loss = 'L2', cost = 0.18) com as variáveis indepedentes padronizadas.
 
 Pre Requisitos
 ---------------
