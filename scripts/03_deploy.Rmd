@@ -1,0 +1,172 @@
+---
+title: "Vendas de jogos eletrônicos da 8° geração"
+runtime: shiny
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+    smooth_scroll: true
+    
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(dplyr)
+library(ggplot2)
+library(shiny)
+library(forcats)
+library(LiblineaR)
+library(caret)
+modelo = readRDS("modelo")
+dados = readRDS('dados')
+
+escalar_variavel = function(v,dados){
+  (v - mean(dados))/sd(dados)
+}
+```
+
+Column {data-width=200}
+-----------------------------------------------------------------------
+
+### Valor previsto
+
+```{r}
+selectInput("Genre",
+        label = "Gênero do jogo:",
+        choices = dados %>% .$Genre %>% unique %>% sort,
+        multiple = F)
+
+selectInput("publisher_top",
+        label = "Publicadora do jogo:",
+        choices = dados %>% .$publisher_top %>% unique %>% sort,
+        multiple = F)
+
+numericInput('score',"Nota dos especialistas:",
+  round(dados %>% .$Critic_Score %>% mean()),
+  min = 0,
+  max = 100,
+  width = NULL
+)
+
+numericInput('userscore',"Nota dos usuários:",
+  round(dados %>% .$User_Score %>% mean()),
+  min = 0,
+  max = 100,
+  width = NULL
+)
+
+selectInput("Continuacao",
+        label = "O jogo é uma continuação:",
+        choices = c('Sim',"Não"),
+        multiple = F)
+
+numericInput('platforms',"Número de Plataformas:",
+  1,
+  min = 1,
+  max = 4,
+  width = NULL
+)
+```
+
+Column {data-width=200}
+-----------------------------------------------------------------------
+
+### Comparação
+
+```{r}
+selectInput("Genre2",
+        label = "Gênero do jogo:",
+        choices = dados %>% .$Genre %>% unique %>% sort,
+        multiple = F)
+
+selectInput("publisher_top2",
+        label = "Publicadora do jogo:",
+        choices = dados %>% .$publisher_top %>% unique %>% sort,
+        multiple = F)
+
+numericInput('score2',"Nota dos especialistas:",
+  round(dados %>% .$Critic_Score %>% mean()),
+  min = 0,
+  max = 100,
+  width = NULL
+)
+
+numericInput('userscore2',"Nota dos usuários:",
+  round(dados %>% .$User_Score %>% mean()),
+  min = 0,
+  max = 100,
+  width = NULL
+)
+
+selectInput("Continuacao2",
+        label = "O jogo é uma continuação:",
+        choices = c('Sim',"Não"),
+        multiple = F)
+
+numericInput('platforms2',"Número de Plataformas:",
+  1,
+  min = 1,
+  max = 4,
+  width = NULL
+)
+```
+
+Column {data-width=600}
+-----------------------------------------------------------------------
+
+### Vendas globais
+
+```{r}
+
+renderPlot({
+  selected <- input$platforms
+  if(is.null(selected)) selected <- c('PS4')
+  
+  selected2 <- input$platforms2
+  if(is.null(selected2)) selected2 <- c('PS4')
+  
+  platforms = case_when(input$platforms == 1 ~ '1',
+                                           input$platforms == 2 ~ '2',
+                                           input$platforms == 3 ~ '3',
+                                           TRUE ~ '3>')
+  platforms = factor(platforms, levels = c('1','2','3','3>'), ordered = T)
+  
+  platforms2 = case_when(input$platforms2 == 1 ~ '1',
+                                           input$platforms2 == 2 ~ '2',
+                                           input$platforms2 == 3 ~ '3',
+                                           TRUE ~ '3>')
+  platforms2 = factor(platforms2, levels = c('1','2','3','3>'), ordered = T)
+  
+  
+  predic <- data.frame(n_platforms = platforms,
+                    Genre = input$Genre, 
+                    publisher_top = input$publisher_top, 
+                    Critic_Score = escalar_variavel(input$score, dados$Critic_Score), 
+                    User_Score = escalar_variavel(input$userscore,dados$User_Score),
+                    Mean_Score = escalar_variavel((input$score + input$userscore)/2,dados$Mean_Score),
+                    Continuacao = case_when(input$Continuacao == "Sim" ~ '1',
+                                           input$Continuacao == "Não" ~ '0'))
+  
+  compar <- data.frame(n_platforms = platforms2,
+                    Genre = input$Genre2, 
+                    publisher_top = input$publisher_top2, 
+                    Critic_Score = escalar_variavel(input$score2, dados$Critic_Score), 
+                    User_Score = escalar_variavel(input$userscore2,dados$User_Score),
+                    Mean_Score = escalar_variavel((input$score2 + input$userscore2)/2,dados$Mean_Score),
+                    Continuacao = case_when(input$Continuacao2 == "Sim" ~ '1',
+                                           input$Continuacao2 == "Não" ~ '0'))
+  
+  plot <-  data.frame(Global_Sales = c(exp(predict(modelo, predic)),exp(predict(modelo, compar))), Tipo = c('Valores\nescolhidos', 'Comparação'))
+  
+  plot%>%
+  mutate(Tipo = fct_relevel(Tipo, 
+            "Valores\nescolhidos", "Comparação")) %>%
+  ggplot(aes(y = Global_Sales, x = reorder(Tipo,Tipo), fill = Tipo)) + geom_col(position = "dodge2") + 
+    theme_minimal() +
+    scale_y_continuous(name = 'Milhões de vendas') + xlab('') + theme(legend.position = '') +
+    geom_text(aes(x = reorder(Tipo,Tipo), y = Global_Sales,label= round(Global_Sales,2)),
+              position= position_stack(vjust=0.5), color = "white", size = 22) + theme(text = element_text(size = 16))
+})
+
+
+```  
