@@ -26,7 +26,7 @@ Sobre
 O presente trabalho tem o objetivo de desenvolver modelos de Machine Lerning (ML) com os dados de vendas de jogos eletrônicos de 2013 a 2017 (oitava geração de consoles). 
 Este trabalho é fundamentalmente para a prática de ML do autor, como forma de portfólio.
 
-- Este README.md é um resumo, para ver todos os passos acessar os scripts do R ou no kaggle (https://www.kaggle.com/franciscoaltanizio/predicting-video-games-global-sales-with-r). 
+- Este README.md é um resumo, para ver todos os passos acessar os scripts do <a href = 'https://github.com/altanizio/games-sales-ml/tree/main/scripts'>R</a> ou no <a href = 'https://www.kaggle.com/franciscoaltanizio/predicting-video-games-global-sales-with-r'>kaggle</a>. 
 
 
 Análise exploratória
